@@ -1,0 +1,41 @@
+{
+  "candlestick": {
+    "valid_params": {
+      "instrument_name": "BTCUSD-PERP",
+      "timeframe": "M5"
+    },
+    "invalid_params": {
+      "missing_instrument": {
+        "timeframe": "M5"
+      },
+      "missing_timeframe": {
+        "instrument_name": "BTCUSD-PERP"
+      },
+      "invalid_instrument": {
+        "instrument_name": "INVALID-INSTRUMENT",
+        "timeframe": "M5"
+      },
+      "invalid_timeframe": {
+        "instrument_name": "BTCUSD-PERP",
+        "timeframe": "INVALID"
+      }
+    },
+    "expected_fields": ["o", "h", "l", "c", "v", "t"]
+  },
+  "websocket": {
+    "subscription_messages": {
+      "ticker": {
+        "method": "subscribe",
+        "params": {
+          "channels": ["ticker.BTCUSD-PERP"]
+        }
+      },
+      "trades": {
+        "method": "subscribe",
+        "params": {
+          "channels": ["trades.BTCUSD-PERP"]
+        }
+      }
+    }
+  }
+} 

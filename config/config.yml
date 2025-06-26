@@ -1,0 +1,22 @@
+api:
+  base_url: ${BASE_URL}
+  timeout: ${TIMEOUT}
+  headers:
+    Content-Type: application/json
+  endpoints:
+    candlestick: /exchange/v1/public/get-candlestick
+
+websocket:
+  url: ${WS_URL}
+  timeout: ${WS_TIMEOUT}
+
+logging:
+  level: ${LOG_LEVEL:INFO}
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: reports/test_log.log
+
+test_data:
+  valid_instrument: BTCUSD-PERP
+  valid_timeframe: M5
+  invalid_instrument: INVALID-INSTRUMENT
+  invalid_timeframe: INVALID
