@@ -23,19 +23,52 @@
     "expected_fields": ["o", "h", "l", "c", "v", "t"]
   },
   "websocket": {
+    "url": "wss://uat-stream.3ona.co/exchange/v1/market",
     "subscription_messages": {
+      "book_simple": {
+        "id": 1,
+        "method": "subscribe",
+        "params": {
+          "channels": ["book.BTCUSD-PERP.10"]
+        }
+      },
+      "book_full": {
+        "id": 1,
+        "method": "subscribe",
+        "params": {
+          "channels": ["book.BTCUSD-PERP.10"],
+          "book_subscription_type": "SNAPSHOT_AND_UPDATE",
+          "book_update_frequency": 10
+        }
+      },
       "ticker": {
+        "id": 2,
         "method": "subscribe",
         "params": {
           "channels": ["ticker.BTCUSD-PERP"]
         }
       },
       "trades": {
+        "id": 3,
         "method": "subscribe",
         "params": {
           "channels": ["trades.BTCUSD-PERP"]
         }
       }
+    },
+    "expected_response_fields": {
+      "subscription": ["id", "method", "code", "result"],
+      "book_data": [
+        "instrument_name",
+        "subscription",
+        "channel",
+        "depth",
+        "data"
+      ],
+      "trade_data": ["instrument_name", "subscription", "channel", "data"],
+      "book_entry": ["update", "t", "tt", "u", "pu", "cs"],
+      "trade_entry": ["d", "t", "p", "q", "s", "i", "m"],
+      "order_entry": ["price", "size", "count"]
     }
   }
-} 
+}
