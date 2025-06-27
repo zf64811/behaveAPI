@@ -5,6 +5,26 @@ import requests
 from behave import given, when, then
 from utils.logger import get_logger
 from utils.assertions import assertions
+from utils.config_manager import config
+
+# Allure imports (optional - only used if allure-behave is installed)
+try:
+    import allure
+    from allure_commons.types import AttachmentType
+    ALLURE_AVAILABLE = True
+except ImportError:
+    ALLURE_AVAILABLE = False
+
+    # Create dummy decorators if Allure is not available
+    class allure:
+        @staticmethod
+        def step(title):
+            return lambda func: func
+
+        @staticmethod
+        def attach(*args, **kwargs):
+            pass
+
 
 logger = get_logger(__name__)
 
@@ -143,8 +163,41 @@ def step_send_request(context, method, endpoint):
         except json.JSONDecodeError:
             context.response_json = None
 
+        # Add Allure attachments if available
+        if ALLURE_AVAILABLE:
+            with allure.step(f"{method} {endpoint}"):
+                allure.attach(url,
+                              name="Request URL",
+                              attachment_type=AttachmentType.TEXT)
+                allure.attach(json.dumps(headers, indent=2),
+                              name="Request Headers",
+                              attachment_type=AttachmentType.JSON)
+                if params:
+                    allure.attach(json.dumps(params, indent=2),
+                                  name="Request Parameters",
+                                  attachment_type=AttachmentType.JSON)
+                if data:
+                    allure.attach(json.dumps(data, indent=2),
+                                  name="Request Body",
+                                  attachment_type=AttachmentType.JSON)
+                allure.attach(
+                    context.response.text[:1000],  # Limit response size
+                    name="Response Body",
+                    attachment_type=AttachmentType.JSON
+                    if context.response.headers.get(
+                        'content-type', '').startswith('application/json') else
+                    AttachmentType.TEXT)
+                allure.attach(
+                    f"Status Code: {context.response.status_code}\nElapsed Time: {context.response.elapsed.total_seconds():.3f}s",
+                    name="Response Info",
+                    attachment_type=AttachmentType.TEXT)
+
     except requests.exceptions.RequestException as e:
         logger.error(f"Request failed: {e}")
+        if ALLURE_AVAILABLE:
+            allure.attach(str(e),
+                          name="Request Error",
+                          attachment_type=AttachmentType.TEXT)
         raise
 
 
