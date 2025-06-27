@@ -1,14 +1,22 @@
 api:
   base_url: ${BASE_URL}
-  timeout: ${TIMEOUT}
+  timeout: ${TIMEOUT:30}
   headers:
     Content-Type: application/json
   endpoints:
     candlestick: /exchange/v1/public/get-candlestick
 
 websocket:
-  url: ${WS_URL}
-  timeout: ${WS_TIMEOUT}
+  url: ${WS_URL:wss://uat-stream.3ona.co/exchange/v1/market}
+  timeout: ${WS_TIMEOUT:30}
+
+  subscriptions:
+    book:
+      method: subscribe
+      channels:
+        - book.BTCUSD-PERP.10
+      book_subscription_type: SNAPSHOT_AND_UPDATE
+      book_update_frequency: 10
 
 logging:
   level: ${LOG_LEVEL:INFO}
