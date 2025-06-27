@@ -29,7 +29,7 @@
         "id": 1,
         "method": "subscribe",
         "params": {
-          "channels": ["book.BTCUSD-PERP.10"]
+          "channels": ["trade.BTCUSD-PERP"]
         }
       },
       "book_full": {
@@ -39,20 +39,6 @@
           "channels": ["book.BTCUSD-PERP.10"],
           "book_subscription_type": "SNAPSHOT_AND_UPDATE",
           "book_update_frequency": 10
-        }
-      },
-      "ticker": {
-        "id": 2,
-        "method": "subscribe",
-        "params": {
-          "channels": ["ticker.BTCUSD-PERP"]
-        }
-      },
-      "trades": {
-        "id": 3,
-        "method": "subscribe",
-        "params": {
-          "channels": ["trades.BTCUSD-PERP"]
         }
       }
     },
