@@ -35,7 +35,6 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
-.nox/
 .coverage
 .coverage.*
 .cache
@@ -45,24 +44,47 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# Translations
-*.mo
-*.pot
+# Test reports
+reports/
+*.html
+*.json
+*.xml
 
-# Django stuff:
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env.backup
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs
 *.log
-local_settings.py
-db.sqlite3
 
-# Flask stuff:
-instance/
-.webassets-cache
+# Allure
+allure-results/
+allure-report/
 
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
+# Behave
+rerun.txt
 
 # PyBuilder
 target/
@@ -78,14 +100,6 @@ celerybeat-schedule
 
 # SageMath parsed files
 *.sage.py
-
-# Environments
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -105,20 +119,23 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
+# Django stuff:
+local_settings.py
+db.sqlite3
 
-# Test reports
-reports/*.log
-reports/*.json
-reports/*.xml
+# Flask stuff:
+instance/
+.webassets-cache
 
-# OS
-.DS_Store
-Thumbs.db
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# Sphinx documentation
+*.mo
+*.pot
 
 # Project specific
 .env.local
