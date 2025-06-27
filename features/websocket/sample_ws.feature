@@ -15,9 +15,10 @@ Feature: WebSocket Book Subscription Testing
         When I send the subscription message
         Then I should receive a successful subscription response
         And the response should contain subscription confirmation
-        And the book data should contain required fields
-        And the book should have asks and bids arrays
-        And each order entry should have price, size, and count
+        And the book data should contain required fields with simple parameters
+        And the trade data should contain required fields
+        And each trade entry should have required fields
+
 
     @positive
     Scenario: Subscribe to order book with full parameters

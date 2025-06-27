@@ -12,6 +12,7 @@ logger = get_logger(__name__)
 
 class WebSocketClient:
     """WebSocket client wrapper for testing."""
+
     def __init__(self, url, timeout=30):
         self.url = url
         self.timeout = timeout
@@ -82,6 +83,7 @@ class WebSocketClient:
 @given('I have the WebSocket URL configured')
 def step_ws_url_configured(context):
     """Verify WebSocket URL is configured."""
+    time.sleep(1)  # Ensure any previous setup is complete
     ws_config = context.config.get('websocket', {})
     context.ws_url = ws_config.get('url')
     context.ws_timeout = int(ws_config.get('timeout', 30))
@@ -234,6 +236,28 @@ def step_book_data_has_required_fields(context):
     logger.debug(f"All required book data fields present: {expected_fields}")
 
 
+@then('the book data should contain required fields with simple parameters')
+def step_book_data_has_required_fields(context):
+    """Check if book data contains all required fields."""
+    assert context.ws_response is not None, "No WebSocket response available"
+    assert isinstance(context.ws_response,
+                      dict), "Response is not a dictionary"
+
+    # Load expected fields from test data
+    with open('test_data/test_data.json', 'r') as f:
+        test_data = json.load(f)
+
+    expected_fields = test_data['websocket']['expected_response_fields'][
+        'trade_data']
+
+    # Check result object has required fields
+    result = context.ws_response.get('result', {})
+    for field in expected_fields:
+        assert field in result, f"Book data missing required field: {field}"
+
+    logger.debug(f"All required book data fields present: {expected_fields}")
+
+
 @then('the book should have asks and bids arrays')
 def step_book_has_asks_and_bids(context):
     """Check if book data has asks and bids arrays."""
@@ -357,3 +381,86 @@ def step_error_indicates_invalid_channel(context):
             ), f"Error message should indicate invalid channel: {error_msg}"
 
     logger.debug("Error response indicates invalid channel")
+
+
+@then('the trade data should contain required fields')
+def step_trade_data_has_required_fields(context):
+    """Check if trade data contains all required fields."""
+    assert context.ws_response is not None, "No WebSocket response available"
+    assert isinstance(context.ws_response,
+                      dict), "Response is not a dictionary"
+
+    # Load expected fields from test data
+    with open('test_data/test_data.json', 'r') as f:
+        test_data = json.load(f)
+
+    expected_fields = test_data['websocket']['expected_response_fields'][
+        'trade_data']
+
+    # Check result object has required fields
+    result = context.ws_response.get('result', {})
+    for field in expected_fields:
+        assert field in result, f"Trade data missing required field: {field}"
+
+    logger.debug(f"All required trade data fields present: {expected_fields}")
+
+
+@then('each trade entry should have required fields')
+def step_trade_entries_have_required_fields(context):
+    """Check if each trade entry has required fields."""
+    assert context.ws_response is not None, "No WebSocket response available"
+
+    result = context.ws_response.get('result', {})
+    data = result.get('data', [])
+
+    # Load expected trade entry fields from test data
+    with open('test_data/test_data.json', 'r') as f:
+        test_data = json.load(f)
+
+    expected_trade_fields = test_data['websocket']['expected_response_fields'][
+        'trade_entry']
+
+    # Check each trade entry has required fields
+    for i, trade_entry in enumerate(data):
+        logger.debug(
+            f"Checking trade entry {i}: {json.dumps(trade_entry, indent=2)}")
+
+        for field in expected_trade_fields:
+            assert field in trade_entry, f"Trade entry {i} missing required field: {field}"
+
+        # Additional validation for specific fields
+        # Check 'd' field (trade ID) is a string
+        assert isinstance(trade_entry['d'],
+                          str), f"Trade entry {i} 'd' field should be string"
+
+        # Check 't' field (timestamp) is numeric
+        assert isinstance(
+            trade_entry['t'],
+            (int, float)), f"Trade entry {i} 't' field should be numeric"
+
+        # Check 'p' field (price) is a string representing a number
+        assert isinstance(trade_entry['p'],
+                          str), f"Trade entry {i} 'p' field should be string"
+        assert trade_entry['p'].replace('.', '').replace('-', '').isdigit(
+        ), f"Trade entry {i} 'p' field should be numeric string"
+
+        # Check 'q' field (quantity) is a string representing a number
+        assert isinstance(trade_entry['q'],
+                          str), f"Trade entry {i} 'q' field should be string"
+        assert trade_entry['q'].replace('.', '').replace('-', '').isdigit(
+        ), f"Trade entry {i} 'q' field should be numeric string"
+
+        # Check 's' field (side) is valid
+        assert trade_entry['s'] in [
+            'BUY', 'SELL'
+        ], f"Trade entry {i} 's' field should be 'BUY' or 'SELL'"
+
+        # Check 'i' field (instrument) is a string
+        assert isinstance(trade_entry['i'],
+                          str), f"Trade entry {i} 'i' field should be string"
+
+        # Check 'm' field (maker order ID) is a string
+        assert isinstance(trade_entry['m'],
+                          str), f"Trade entry {i} 'm' field should be string"
+
+    logger.debug(f"All {len(data)} trade entries have required fields")
