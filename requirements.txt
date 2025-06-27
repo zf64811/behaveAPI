@@ -5,4 +5,7 @@ PyYAML==6.0.1
 python-dotenv==1.0.0
 jsonschema==4.20.0
 colorlog==6.8.0
-allure-behave==2.13.2 
+allure-behave==2.13.2
+
+# HTML report generation
+behave-html-formatter 
