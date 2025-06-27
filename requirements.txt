@@ -4,8 +4,4 @@ websocket-client==1.6.4
 PyYAML==6.0.1
 python-dotenv==1.0.0
 jsonschema==4.20.0
-colorlog==6.8.0
-
-# Test reporting
-allure-behave==2.13.2
-behave-html-formatter 
+colorlog==6.8.0 

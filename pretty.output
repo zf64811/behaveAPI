@@ -1,0 +1,82 @@
+@rest @candlestick
+Feature: Candlestick API Testing # features/rest/candlestick.feature:2
+  As an API user
+  I want to retrieve candlestick data
+  So that I can analyze market trends
+  Background:   # features/rest/candlestick.feature:7
+
+  @smoke @positive
+  Scenario: Get candlestick data with valid parameters      # features/rest/candlestick.feature:12
+    Given I have the API base URL configured                # features/steps/rest_steps.py:32
+    And I set the request headers                           # features/steps/rest_steps.py:39
+    Given I have valid candlestick parameters               # features/steps/rest_steps.py:55
+    When I send a GET request to the candlestick endpoint   # features/steps/rest_steps.py:91
+    Then the response status code should be 200             # features/steps/rest_steps.py:204
+    And the response should contain "result.data"           # features/steps/rest_steps.py:220
+    And the candlestick data should contain required fields # features/steps/rest_steps.py:272
+    And each candlestick should have "o" field              # features/steps/rest_steps.py:294
+    And each candlestick should have "h" field              # features/steps/rest_steps.py:294
+    And each candlestick should have "l" field              # features/steps/rest_steps.py:294
+    And each candlestick should have "c" field              # features/steps/rest_steps.py:294
+
+  @negative
+  Scenario: Get candlestick data without instrument_name parameter  # features/rest/candlestick.feature:24
+    Given I have the API base URL configured                        # None
+    And I set the request headers                                   # None
+    Given I have candlestick parameters without instrument_name     # None
+    When I send a GET request to the candlestick endpoint           # None
+    Then the response status code should not be 200                 # None
+    And the response should contain an error structure              # None
+
+  @negative
+  Scenario: Get candlestick data with invalid instrument_name        # features/rest/candlestick.feature:31
+    Given I have the API base URL configured                         # None
+    And I set the request headers                                    # None
+    Given I have candlestick parameters with invalid instrument_name # None
+    When I send a GET request to the candlestick endpoint            # None
+    Then the response status code should not be 200                  # None
+    And the response should contain an error structure               # None
+
+@websocket @book
+Feature: WebSocket Book Subscription Testing # features/websocket/sample_ws.feature:2
+  As an API user
+  I want to subscribe to order book data via WebSocket
+  So that I can receive real-time market depth information
+  Background:   # features/websocket/sample_ws.feature:7
+
+  @smoke @positive
+  Scenario: Subscribe to order book with simple parameters    # features/websocket/sample_ws.feature:12
+    Given I have the WebSocket URL configured                 # features/steps/ws_steps.py:82
+    And I set the WebSocket timeout                           # features/steps/ws_steps.py:93
+    Given I have a WebSocket connection to the book endpoint  # features/steps/ws_steps.py:99
+    And I prepare a simple book subscription message          # features/steps/ws_steps.py:107
+    When I send the subscription message                      # features/steps/ws_steps.py:145
+    Then I should receive a successful subscription response  # features/steps/ws_steps.py:152
+    And the response should contain subscription confirmation # features/steps/ws_steps.py:194
+    And the book data should contain required fields          # features/steps/ws_steps.py:215
+    And the book should have asks and bids arrays             # features/steps/ws_steps.py:237
+    And each order entry should have price, size, and count   # features/steps/ws_steps.py:292
+
+  @positive
+  Scenario: Subscribe to order book with full parameters      # features/websocket/sample_ws.feature:23
+    Given I have the WebSocket URL configured                 # None
+    And I set the WebSocket timeout                           # None
+    Given I have a WebSocket connection to the book endpoint  # None
+    And I prepare a full book subscription message            # None
+    When I send the subscription message                      # None
+    Then I should receive a successful subscription response  # None
+    And the response should contain subscription confirmation # None
+    And the book data should contain required fields          # None
+    And the book should have asks and bids arrays             # None
+    And each order entry should have price, size, and count   # None
+
+  @negative
+  Scenario: Subscribe with invalid channel                   # features/websocket/sample_ws.feature:34
+    Given I have the WebSocket URL configured                # None
+    And I set the WebSocket timeout                          # None
+    Given I have a WebSocket connection to the book endpoint # None
+    And I prepare an invalid subscription message            # None
+    When I send the subscription message                     # None
+    Then I should receive an error response                  # None
+    And the error should indicate invalid channel            # None
+
