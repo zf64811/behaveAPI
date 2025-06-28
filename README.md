@@ -1,61 +1,61 @@
-# BehaveAPI - API 自动化测试框架
+# BehaveAPI - API Automation Testing Framework
 
-基于 Python Behave 的 API 自动化测试框架，支持 REST API 和 WebSocket 接口测试。
+An API automation testing framework based on Python Behave, supporting REST API and WebSocket interface testing.
 
-## 项目概述
+## Project Overview
 
-BehaveAPI 是一个基于 Python 和 Behave 的 BDD（行为驱动开发）测试框架，支持 REST API 和 WebSocket 的自动化测试。
+BehaveAPI is a BDD (Behavior Driven Development) testing framework based on Python and Behave, supporting automated testing for REST APIs and WebSockets.
 
-## 项目结构
+## Project Structure
 
 ```
 behaveAPI/
-├── features/                    # Feature 文件目录
-│   ├── rest/                   # REST API 测试用例
-│   │   └── candlestick.feature # K线数据接口测试
-│   └── websocket/              # WebSocket 测试用例
-├── features/steps/             # Step 定义目录
-│   ├── rest_steps.py          # REST API 步骤定义
-│   ├── ws_steps.py            # WebSocket 步骤定义
-│   └── common_steps.py        # 通用步骤定义
-├── features/environment.py     # Behave 环境配置
-├── config/                     # 配置文件目录
-│   ├── config.yml             # 主配置文件
-│   └── .env.example           # 环境变量示例
-├── test_data/                  # 测试数据目录
-│   └── test_data.json         # 测试数据文件
-├── utils/                      # 工具模块
+├── features/                    # Feature files directory
+│   ├── rest/                   # REST API test cases
+│   │   └── candlestick.feature # Candlestick data interface tests
+│   └── websocket/              # WebSocket test cases
+├── features/steps/             # Step definitions directory
+│   ├── rest_steps.py          # REST API step definitions
+│   ├── ws_steps.py            # WebSocket step definitions
+│   └── common_steps.py        # Common step definitions
+├── features/environment.py     # Behave environment configuration
+├── config/                     # Configuration files directory
+│   ├── config.yml             # Main configuration file
+│   └── .env.example           # Environment variables example
+├── test_data/                  # Test data directory
+│   └── test_data.json         # Test data file
+├── utils/                      # Utility modules
 │   ├── __init__.py
-│   ├── assertions.py          # 断言工具
-│   ├── logger.py              # 日志工具
-│   └── config_manager.py      # 配置管理
-├── reports/                    # 测试报告目录
-├── requirements.txt            # 依赖包列表
-├── .env                        # 环境变量文件（需自行创建）
-├── .gitignore                 # Git 忽略文件
-└── README.md                   # 项目说明文档
+│   ├── assertions.py          # Assertion utilities
+│   ├── logger.py              # Logging utilities
+│   └── config_manager.py      # Configuration management
+├── reports/                    # Test reports directory
+├── requirements.txt            # Dependencies list
+├── .env                        # Environment variables file (create manually)
+├── .gitignore                 # Git ignore file
+└── README.md                   # Project documentation
 ```
 
-## 技术栈
+## Technology Stack
 
 - **Python 3.8+**
-- **Behave**: BDD 测试框架
-- **Requests**: REST API 请求库
-- **websocket-client**: WebSocket 客户端库
-- **PyYAML**: YAML 配置文件解析
-- **python-dotenv**: 环境变量管理
-- **jsonschema**: JSON Schema 验证
+- **Behave**: BDD testing framework
+- **Requests**: REST API request library
+- **websocket-client**: WebSocket client library
+- **PyYAML**: YAML configuration file parsing
+- **python-dotenv**: Environment variable management
+- **jsonschema**: JSON Schema validation
 
-## 安装说明
+## Installation Instructions
 
-1. 克隆项目
+1. Clone the project
 
 ```bash
 git clone <repository_url>
 cd behaveAPI
 ```
 
-2. 创建虚拟环境（推荐）
+2. Create virtual environment (recommended)
 
 ```bash
 python -m venv venv
@@ -65,22 +65,22 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-3. 安装依赖
+3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. 配置环境变量
+4. Configure environment variables
 
 ```bash
 cp config/.env.example .env
-# 编辑 .env 文件，设置必要的环境变量
+# Edit the .env file and set necessary environment variables
 ```
 
-## 配置说明
+## Configuration
 
-### 环境变量 (.env)
+### Environment Variables (.env)
 
 ```
 BASE_URL=https://uat-api.3ona.co
@@ -88,7 +88,7 @@ TIMEOUT=30
 LOG_LEVEL=INFO
 ```
 
-### 配置文件 (config/config.yml)
+### Configuration File (config/config.yml)
 
 ```yaml
 api:
@@ -102,104 +102,104 @@ logging:
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 ```
 
-## 测试用例设计
+## Test Case Design
 
-### REST API 测试
+### REST API Testing
 
-#### 场景一：正确参数请求
+#### Scenario 1: Valid Parameter Request
 
-- 发送包含所有必需参数的 GET 请求
-- 验证响应状态码为 200
-- 验证响应体包含 result.data
-- 验证数据包含 o, h, l, c 等字段
+- Send GET request with all required parameters
+- Verify response status code is 200
+- Verify response body contains result.data
+- Verify data contains fields like o, h, l, c
 
-#### 场景二：错误参数请求
+#### Scenario 2: Invalid Parameter Request
 
-- 发送缺少必需参数的请求
-- 验证返回错误状态码
-- 验证错误响应结构
+- Send request missing required parameters
+- Verify error status code is returned
+- Verify error response structure
 
-## 执行方式
+## Execution Methods
 
-### 运行所有测试
+### Run All Tests
 
 ```bash
 behave
 ```
 
-### 运行特定功能测试
+### Run Specific Feature Tests
 
 ```bash
-# 只运行 REST API 测试
+# Run only REST API tests
 behave features/rest/
 
-# 只运行 WebSocket 测试
+# Run only WebSocket tests
 behave features/websocket/
 ```
 
-### 运行特定标签的测试
+### Run Tests with Specific Tags
 
 ```bash
-# 运行标记为 @smoke 的测试
+# Run tests tagged with @smoke
 behave --tags=@smoke
 
-# 运行标记为 @rest 的测试
+# Run tests tagged with @rest
 behave --tags=@rest
 ```
 
-## 日志说明
+## Logging
 
-日志文件将保存在 `reports/` 目录下，包含：
+Log files will be saved in the `reports/` directory, including:
 
-- 请求详情（URL、Headers、Body）
-- 响应详情（状态码、Headers、Body）
-- 断言结果
-- 错误信息
+- Request details (URL, Headers, Body)
+- Response details (Status Code, Headers, Body)
+- Assertion results
+- Error information
 
-## 扩展说明
+## Extension Guide
 
-### 添加新的测试用例
+### Adding New Test Cases
 
-1. 在 `features/` 对应目录下创建 `.feature` 文件
-2. 在 `features/steps/` 中实现对应的步骤定义
-3. 如需新的测试数据，在 `test_data/` 中添加
+1. Create `.feature` files in the corresponding `features/` directory
+2. Implement corresponding step definitions in `features/steps/`
+3. Add test data in `test_data/` if needed
 
-### 添加新的断言方法
+### Adding New Assertion Methods
 
-在 `utils/assertions.py` 中添加自定义断言方法
+Add custom assertion methods in `utils/assertions.py`
 
-### 添加新的配置项
+### Adding New Configuration Items
 
-1. 在 `.env` 中添加环境变量
-2. 在 `config/config.yml` 中引用环境变量
-3. 在代码中通过 `config_manager` 获取配置
+1. Add environment variables in `.env`
+2. Reference environment variables in `config/config.yml`
+3. Access configuration through `config_manager` in code
 
-## 常见问题
+## Common Issues
 
-### Q: 如何切换测试环境？
+### Q: How to switch test environments?
 
-A: 修改 `.env` 文件中的 `BASE_URL` 变量
+A: Modify the `BASE_URL` variable in the `.env` file
 
-### Q: 如何调试失败的测试？
+### Q: How to debug failed tests?
 
 A:
 
-1. 查看 `reports/` 目录下的日志文件
-2. 使用 `behave --no-capture` 查看实时输出
-3. 在步骤定义中添加断点调试
+1. Check log files in the `reports/` directory
+2. Use `behave --no-capture` to view real-time output
+3. Add breakpoints in step definitions for debugging
 
-### Q: 如何添加新的请求头？
+### Q: How to add new request headers?
 
-A: 在 `config/config.yml` 的 `headers` 部分添加，或在步骤定义中动态设置
+A: Add them in the `headers` section of `config/config.yml`, or set them dynamically in step definitions
 
-## 贡献指南
+## Contributing Guidelines
 
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a Pull Request
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
