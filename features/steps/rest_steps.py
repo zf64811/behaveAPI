@@ -5,26 +5,6 @@ import requests
 from behave import given, when, then
 from utils.logger import get_logger
 from utils.assertions import assertions
-from utils.config_manager import config
-
-# Allure imports (optional - only used if allure-behave is installed)
-try:
-    import allure
-    from allure_commons.types import AttachmentType
-    ALLURE_AVAILABLE = True
-except ImportError:
-    ALLURE_AVAILABLE = False
-
-    # Create dummy decorators if Allure is not available
-    class allure:
-        @staticmethod
-        def step(title):
-            return lambda func: func
-
-        @staticmethod
-        def attach(*args, **kwargs):
-            pass
-
 
 logger = get_logger(__name__)
 

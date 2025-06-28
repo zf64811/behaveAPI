@@ -12,7 +12,6 @@ logger = get_logger(__name__)
 
 class WebSocketClient:
     """WebSocket client wrapper for testing."""
-
     def __init__(self, url, timeout=30):
         self.url = url
         self.timeout = timeout
