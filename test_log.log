@@ -1,0 +1,1127 @@
+2025-07-09 13:44:10,936 - builtins - INFO - Starting test execution
+2025-07-09 13:44:10,936 - builtins - INFO - Base URL: https://uat-api.3ona.co
+2025-07-09 13:44:10,936 - builtins - INFO - Default timeout: 30s
+2025-07-09 13:44:10,937 - builtins - INFO - Starting feature: Candlestick API Testing
+2025-07-09 13:44:10,937 - builtins - INFO - Starting scenario: Get candlestick data with valid parameters
+2025-07-09 13:44:10,938 - builtins - DEBUG - Executing step: I have the API base URL configured
+2025-07-09 13:44:10,938 - builtins - INFO - Using base URL: https://uat-api.3ona.co
+2025-07-09 13:44:10,938 - builtins - DEBUG - Executing step: I set the request headers
+2025-07-09 13:44:10,938 - builtins - DEBUG - Request headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:10,938 - builtins - DEBUG - Executing step: I have valid candlestick parameters
+2025-07-09 13:44:10,939 - builtins - DEBUG - Request parameters: {'instrument_name': 'BTCUSD-PERP', 'timeframe': 'M5'}
+2025-07-09 13:44:10,939 - builtins - DEBUG - Executing step: I send a GET request to the candlestick endpoint
+2025-07-09 13:44:10,939 - builtins - INFO - Request: GET https://uat-api.3ona.co/exchange/v1/public/get-candlestick
+2025-07-09 13:44:10,939 - builtins - DEBUG - Query Parameters: {'instrument_name': 'BTCUSD-PERP', 'timeframe': 'M5'}
+2025-07-09 13:44:10,939 - builtins - DEBUG - Headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:11,363 - builtins - INFO - Response: 200 (0.42s)
+2025-07-09 13:44:11,363 - builtins - DEBUG - Response Headers: {'Date': 'Wed, 09 Jul 2025 13:44:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'CF-Ray': '95c8412cbf537ac4-SJC', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding', 'Set-Cookie': '__cf_bm=Eh1S8NqyNOCcFJlPQshgjs7VrqFkkJWmSlV9ZCN118E-1752068651-1.0.1.1-9KYFyqSIwNoik6MMS3CnXQWGsoTH3vjd_zVlvEPlBb5hTbV2F8sYaxpQwnEJDIpMlOlW2_KWx5gSNNHR1KxFDUU6De4UEr55gQwKA0tVfk4; path=/; expires=Wed, 09-Jul-25 14:14:11 GMT; domain=.3ona.co; HttpOnly; Secure; SameSite=None, _cfuvid=hdUY9Qyjrn7BoyuOdEVV4lRB_FrGTwOYij56FcIZC00-1752068651361-0.0.1.1-604800000; path=/; domain=.3ona.co; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'}
+2025-07-09 13:44:11,363 - builtins - DEBUG - Response Body: {
+  "id" : -1,
+  "method" : "public/get-candlestick",
+  "code" : 0,
+  "result" : {
+    "interval" : "M5",
+    "data" : [ {
+      "o" : "92693.3",
+      "h" : "92693.3",
+      "l" : "92693.3",
+      "c" : "92693.3",
+      "v" : "0",
+      "t" : 1752061200000
+    }, {
+      "o" : "92693.3",
+      "h" : "92693.3",
+      "l" : "92693.3",
+      "c" : "92693.3",
+      "v" : "0",
+      "t" : 1752061500000
+    }, {
+      "o" : "92693.3",
+      "h" : "92693.3",
+      "l" : "92693.3",
+      "c" : "92693.3
+2025-07-09 13:44:11,364 - builtins - DEBUG - Executing step: the response status code should be 200
+2025-07-09 13:44:11,364 - utils.assertions - DEBUG - Status code assertion passed: 200
+2025-07-09 13:44:11,364 - builtins - DEBUG - Executing step: the response should contain "result.data"
+2025-07-09 13:44:11,364 - utils.assertions - DEBUG - JSON contains assertion passed for key: result.data
+2025-07-09 13:44:11,364 - builtins - DEBUG - Executing step: the candlestick data should contain required fields
+2025-07-09 13:44:11,364 - utils.assertions - DEBUG - List not empty assertion passed: 25 items
+2025-07-09 13:44:11,365 - builtins - DEBUG - All required fields present: ['o', 'h', 'l', 'c', 'v', 't']
+2025-07-09 13:44:11,365 - builtins - DEBUG - Executing step: each candlestick should have "o" field
+2025-07-09 13:44:11,365 - utils.assertions - DEBUG - List not empty assertion passed: 25 items
+2025-07-09 13:44:11,365 - builtins - DEBUG - All 25 candlesticks have field: o
+2025-07-09 13:44:11,365 - builtins - DEBUG - Executing step: each candlestick should have "h" field
+2025-07-09 13:44:11,365 - utils.assertions - DEBUG - List not empty assertion passed: 25 items
+2025-07-09 13:44:11,365 - builtins - DEBUG - All 25 candlesticks have field: h
+2025-07-09 13:44:11,365 - builtins - DEBUG - Executing step: each candlestick should have "l" field
+2025-07-09 13:44:11,365 - utils.assertions - DEBUG - List not empty assertion passed: 25 items
+2025-07-09 13:44:11,365 - builtins - DEBUG - All 25 candlesticks have field: l
+2025-07-09 13:44:11,365 - builtins - DEBUG - Executing step: each candlestick should have "c" field
+2025-07-09 13:44:11,366 - utils.assertions - DEBUG - List not empty assertion passed: 25 items
+2025-07-09 13:44:11,366 - builtins - DEBUG - All 25 candlesticks have field: c
+2025-07-09 13:44:11,366 - builtins - INFO - Completed scenario: Get candlestick data with valid parameters - Status: Status.passed
+2025-07-09 13:44:11,367 - builtins - INFO - Starting scenario: Get candlestick data without instrument_name parameter
+2025-07-09 13:44:11,367 - builtins - DEBUG - Executing step: I have the API base URL configured
+2025-07-09 13:44:11,367 - builtins - INFO - Using base URL: https://uat-api.3ona.co
+2025-07-09 13:44:11,368 - builtins - DEBUG - Executing step: I set the request headers
+2025-07-09 13:44:11,368 - builtins - DEBUG - Request headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:11,368 - builtins - DEBUG - Executing step: I have candlestick parameters without instrument_name
+2025-07-09 13:44:11,368 - builtins - DEBUG - Request parameters (missing instrument): {'timeframe': 'M5'}
+2025-07-09 13:44:11,368 - builtins - DEBUG - Executing step: I send a GET request to the candlestick endpoint
+2025-07-09 13:44:11,368 - builtins - INFO - Request: GET https://uat-api.3ona.co/exchange/v1/public/get-candlestick
+2025-07-09 13:44:11,369 - builtins - DEBUG - Query Parameters: {'timeframe': 'M5'}
+2025-07-09 13:44:11,369 - builtins - DEBUG - Headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:11,645 - builtins - INFO - Response: 400 (0.28s)
+2025-07-09 13:44:11,645 - builtins - DEBUG - Response Headers: {'Date': 'Wed, 09 Jul 2025 13:44:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'CF-Ray': '95c8412f4df05850-SJC', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding', 'Set-Cookie': '__cf_bm=R497fCg18XuHCn_R.rtvL7Qr79vqn9I4BGu5lWJ5yYE-1752068651-1.0.1.1-k.ZHvonqbG4xaW_FK.FLnCBsYpdSgrKg83sFHidcjotWjQlkWaUDwKjv.OfrnmhsH3.Hcre8EUGTNpk8Mlr5TeW44wfLXApEfGRW3vE.6CY; path=/; expires=Wed, 09-Jul-25 14:14:11 GMT; domain=.3ona.co; HttpOnly; Secure; SameSite=None, _cfuvid=geu61DqD3n9dGHUvJO_kdlNqWls9U312eifZaHjFNxk-1752068651643-0.0.1.1-604800000; path=/; domain=.3ona.co; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'}
+2025-07-09 13:44:11,645 - builtins - DEBUG - Response Body: {
+  "code" : 40003,
+  "message" : "Invalid request"
+}
+2025-07-09 13:44:11,646 - builtins - DEBUG - Executing step: the response status code should not be 200
+2025-07-09 13:44:11,646 - utils.assertions - DEBUG - Assertion passed: 400 != 200
+2025-07-09 13:44:11,646 - builtins - DEBUG - Executing step: the response should contain an error structure
+2025-07-09 13:44:11,646 - builtins - DEBUG - Found error field: message
+2025-07-09 13:44:11,646 - builtins - INFO - Completed scenario: Get candlestick data without instrument_name parameter - Status: Status.passed
+2025-07-09 13:44:11,647 - builtins - INFO - Starting scenario: Get candlestick data with invalid instrument_name
+2025-07-09 13:44:11,648 - builtins - DEBUG - Executing step: I have the API base URL configured
+2025-07-09 13:44:11,648 - builtins - INFO - Using base URL: https://uat-api.3ona.co
+2025-07-09 13:44:11,648 - builtins - DEBUG - Executing step: I set the request headers
+2025-07-09 13:44:11,648 - builtins - DEBUG - Request headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:11,648 - builtins - DEBUG - Executing step: I have candlestick parameters with invalid instrument_name
+2025-07-09 13:44:11,648 - builtins - DEBUG - Request parameters (invalid instrument): {'instrument_name': 'INVALID-INSTRUMENT', 'timeframe': 'M5'}
+2025-07-09 13:44:11,649 - builtins - DEBUG - Executing step: I send a GET request to the candlestick endpoint
+2025-07-09 13:44:11,649 - builtins - INFO - Request: GET https://uat-api.3ona.co/exchange/v1/public/get-candlestick
+2025-07-09 13:44:11,649 - builtins - DEBUG - Query Parameters: {'instrument_name': 'INVALID-INSTRUMENT', 'timeframe': 'M5'}
+2025-07-09 13:44:11,649 - builtins - DEBUG - Headers: {'Content-Type': 'application/json'}
+2025-07-09 13:44:11,892 - builtins - INFO - Response: 400 (0.24s)
+2025-07-09 13:44:11,892 - builtins - DEBUG - Response Headers: {'Date': 'Wed, 09 Jul 2025 13:44:11 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'CF-Ray': '95c841310adccf1b-SJC', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Accept-Encoding', 'Set-Cookie': '__cf_bm=qel5d1BY_c4tSQfr5pdE5uGMrrEbTu7ZDOV.LzqfWbU-1752068651-1.0.1.1-1cfMsglk1fGK0WZ1mJ2aWBqtpgfsA3RHPXMM_pmJr9BG_1QUr8H6O9RI7LTLwofpaRhX1ZJtq6RfW.IewQsvK1MjppYMGUdHSysuqvEBnsw; path=/; expires=Wed, 09-Jul-25 14:14:11 GMT; domain=.3ona.co; HttpOnly; Secure; SameSite=None, _cfuvid=auPJjlcYOFbrHR32Q8OzGFMzmxpB_DKh0e9auuyKGuE-1752068651891-0.0.1.1-604800000; path=/; domain=.3ona.co; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare', 'alt-svc': 'h3=":443"; ma=86400'}
+2025-07-09 13:44:11,893 - builtins - DEBUG - Response Body: {
+  "code" : 40004,
+  "message" : "Invalid instrument_name"
+}
+2025-07-09 13:44:11,893 - builtins - DEBUG - Executing step: the response status code should not be 200
+2025-07-09 13:44:11,893 - utils.assertions - DEBUG - Assertion passed: 400 != 200
+2025-07-09 13:44:11,893 - builtins - DEBUG - Executing step: the response should contain an error structure
+2025-07-09 13:44:11,893 - builtins - DEBUG - Found error field: message
+2025-07-09 13:44:11,893 - builtins - INFO - Completed scenario: Get candlestick data with invalid instrument_name - Status: Status.passed
+2025-07-09 13:44:11,894 - builtins - INFO - Completed feature: Candlestick API Testing
+2025-07-09 13:44:11,895 - builtins - INFO - Starting feature: WebSocket Book Subscription Testing
+2025-07-09 13:44:11,895 - builtins - INFO - Starting scenario: Subscribe to order book with simple parameters
+2025-07-09 13:44:11,896 - builtins - DEBUG - Executing step: I have the WebSocket URL configured
+2025-07-09 13:44:12,896 - builtins - INFO - Using WebSocket URL: wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:12,897 - builtins - DEBUG - Executing step: I set the WebSocket timeout
+2025-07-09 13:44:12,897 - builtins - DEBUG - WebSocket timeout set to 30s
+2025-07-09 13:44:12,897 - builtins - DEBUG - Executing step: I have a WebSocket connection to the book endpoint
+2025-07-09 13:44:13,627 - builtins - INFO - WebSocket connected to wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:13,627 - builtins - DEBUG - Executing step: I prepare a simple book subscription message
+2025-07-09 13:44:13,628 - builtins - DEBUG - Prepared simple book subscription: {'id': 1, 'method': 'subscribe', 'params': {'channels': ['trade.BTCUSD-PERP']}}
+2025-07-09 13:44:13,628 - builtins - DEBUG - Executing step: I send the subscription message
+2025-07-09 13:44:13,628 - builtins - DEBUG - Sending WebSocket message: {"id": 1, "method": "subscribe", "params": {"channels": ["trade.BTCUSD-PERP"]}}
+2025-07-09 13:44:13,628 - builtins - INFO - Subscription message sent
+2025-07-09 13:44:13,628 - builtins - DEBUG - Executing step: I should receive a successful subscription response
+2025-07-09 13:44:13,830 - builtins - DEBUG - Received WebSocket message: {"id":1,"method":"subscribe","code":0,"result":{"instrument_name":"BTCUSD-PERP","subscription":"trade.BTCUSD-PERP","channel":"trade","data":[{"d":"1752003478112698932","t":1752003478112,"p":"92693.3","q":"0.0002","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923195"},{"d":"1752003473985753457","t":1752003473985,"p":"92693.3","q":"0.0006","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923194"},{"d":"1752003469879894676","t":1752003469879,"p":"92693.3","q":"0.0005","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923193"},{"d":"1752003465751143401","t":1752003465751,"p":"92694.3","q":"0.0006","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923192"},{"d":"1752003461130106376","t":1752003461130,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923191"},{"d":"1752003428097302616","t":1752003428097,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923190"},{"d":"1752003420260078260","t":1752003420260,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923189"},{"d":"1752003412168271067","t":1752003412168,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923188"},{"d":"1752003404086183707","t":1752003404086,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923187"},{"d":"1752003396491474387","t":1752003396491,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923186"},{"d":"1752003388765709596","t":1752003388765,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923185"},{"d":"1752003273273525063","t":1752003273273,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923184"},{"d":"1752003265599095835","t":1752003265599,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923183"},{"d":"1752003257949410595","t":1752003257949,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923182"},{"d":"1752003242489529143","t":1752003242489,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923181"},{"d":"1752003234680586910","t":1752003234680,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923180"},{"d":"1752003227046607004","t":1752003227046,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923179"},{"d":"1752003219359869581","t":1752003219359,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923178"},{"d":"1752003188357845579","t":1752003188357,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923177"},{"d":"1752003180580636862","t":1752003180580,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923176"},{"d":"1752003172845255994","t":1752003172845,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923175"},{"d":"1752003149705069264","t":1752003149705,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923174"},{"d":"1752003134087424489","t":1752003134087,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923173"},{"d":"1752003110724745496","t":1752003110724,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923172"},{"d":"1752003103057447221","t":1752003103057,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923171"},{"d":"1752003095229907388","t":1752003095229,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923170"},{"d":"1752003087498947118","t":1752003087498,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923169"},{"d":"1752003079831462430","t":1752003079831,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923168"},{"d":"1752003072041960194","t":1752003072041,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923167"},{"d":"1752003048132677464","t":1752003048132,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923166"},{"d":"1752003040317624192","t":1752003040317,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923165"},{"d":"1752003008978840265","t":1752003008978,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923164"},{"d":"1752003001201159104","t":1752003001201,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923163"},{"d":"1752002985939270864","t":1752002985939,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923162"},{"d":"1752002978101606525","t":1752002978101,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923161"},{"d":"1752002962532686103","t":1752002962532,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923160"},{"d":"1752002954687411145","t":1752002954687,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923159"},{"d":"1752002939222181142","t":1752002939222,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923158"},{"d":"1752002931494483386","t":1752002931494,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923157"},{"d":"1752002923831479129","t":1752002923831,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923156"},{"d":"1752002908323881595","t":1752002908323,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923155"},{"d":"1752002900505423087","t":1752002900505,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923154"},{"d":"1752002892668876623","t":1752002892668,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923153"},{"d":"1752002884958767302","t":1752002884958,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923152"},{"d":"1752002869535231428","t":1752002869535,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923151"},{"d":"1752002861883933558","t":1752002861883,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923150"},{"d":"1752002854104266693","t":1752002854104,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923149"},{"d":"1752002846284577983","t":1752002846284,"p":"92693.8","q":"0.0001","s":"SELL","i":"BTCUSD-PERP","m":"4611686018467923148"},{"d":"1752002830883846016","t":1752002830883,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923147"},{"d":"1752002822423016650","t":1752002822423,"p":"92693.8","q":"0.0001","s":"BUY","i":"BTCUSD-PERP","m":"4611686018467923146"}]}}
+2025-07-09 13:44:13,830 - builtins - INFO - Received WebSocket response
+2025-07-09 13:44:13,831 - builtins - DEBUG - WebSocket response: {
+  "id": 1,
+  "method": "subscribe",
+  "code": 0,
+  "result": {
+    "instrument_name": "BTCUSD-PERP",
+    "subscription": "trade.BTCUSD-PERP",
+    "channel": "trade",
+    "data": [
+      {
+        "d": "1752003478112698932",
+        "t": 1752003478112,
+        "p": "92693.3",
+        "q": "0.0002",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923195"
+      },
+      {
+        "d": "1752003473985753457",
+        "t": 1752003473985,
+        "p": "92693.3",
+        "q": "0.0006",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923194"
+      },
+      {
+        "d": "1752003469879894676",
+        "t": 1752003469879,
+        "p": "92693.3",
+        "q": "0.0005",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923193"
+      },
+      {
+        "d": "1752003465751143401",
+        "t": 1752003465751,
+        "p": "92694.3",
+        "q": "0.0006",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923192"
+      },
+      {
+        "d": "1752003461130106376",
+        "t": 1752003461130,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923191"
+      },
+      {
+        "d": "1752003428097302616",
+        "t": 1752003428097,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923190"
+      },
+      {
+        "d": "1752003420260078260",
+        "t": 1752003420260,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923189"
+      },
+      {
+        "d": "1752003412168271067",
+        "t": 1752003412168,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923188"
+      },
+      {
+        "d": "1752003404086183707",
+        "t": 1752003404086,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923187"
+      },
+      {
+        "d": "1752003396491474387",
+        "t": 1752003396491,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923186"
+      },
+      {
+        "d": "1752003388765709596",
+        "t": 1752003388765,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923185"
+      },
+      {
+        "d": "1752003273273525063",
+        "t": 1752003273273,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923184"
+      },
+      {
+        "d": "1752003265599095835",
+        "t": 1752003265599,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923183"
+      },
+      {
+        "d": "1752003257949410595",
+        "t": 1752003257949,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923182"
+      },
+      {
+        "d": "1752003242489529143",
+        "t": 1752003242489,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923181"
+      },
+      {
+        "d": "1752003234680586910",
+        "t": 1752003234680,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923180"
+      },
+      {
+        "d": "1752003227046607004",
+        "t": 1752003227046,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923179"
+      },
+      {
+        "d": "1752003219359869581",
+        "t": 1752003219359,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923178"
+      },
+      {
+        "d": "1752003188357845579",
+        "t": 1752003188357,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923177"
+      },
+      {
+        "d": "1752003180580636862",
+        "t": 1752003180580,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923176"
+      },
+      {
+        "d": "1752003172845255994",
+        "t": 1752003172845,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923175"
+      },
+      {
+        "d": "1752003149705069264",
+        "t": 1752003149705,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923174"
+      },
+      {
+        "d": "1752003134087424489",
+        "t": 1752003134087,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923173"
+      },
+      {
+        "d": "1752003110724745496",
+        "t": 1752003110724,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923172"
+      },
+      {
+        "d": "1752003103057447221",
+        "t": 1752003103057,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923171"
+      },
+      {
+        "d": "1752003095229907388",
+        "t": 1752003095229,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923170"
+      },
+      {
+        "d": "1752003087498947118",
+        "t": 1752003087498,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923169"
+      },
+      {
+        "d": "1752003079831462430",
+        "t": 1752003079831,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923168"
+      },
+      {
+        "d": "1752003072041960194",
+        "t": 1752003072041,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923167"
+      },
+      {
+        "d": "1752003048132677464",
+        "t": 1752003048132,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923166"
+      },
+      {
+        "d": "1752003040317624192",
+        "t": 1752003040317,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923165"
+      },
+      {
+        "d": "1752003008978840265",
+        "t": 1752003008978,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923164"
+      },
+      {
+        "d": "1752003001201159104",
+        "t": 1752003001201,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923163"
+      },
+      {
+        "d": "1752002985939270864",
+        "t": 1752002985939,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923162"
+      },
+      {
+        "d": "1752002978101606525",
+        "t": 1752002978101,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923161"
+      },
+      {
+        "d": "1752002962532686103",
+        "t": 1752002962532,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923160"
+      },
+      {
+        "d": "1752002954687411145",
+        "t": 1752002954687,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923159"
+      },
+      {
+        "d": "1752002939222181142",
+        "t": 1752002939222,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923158"
+      },
+      {
+        "d": "1752002931494483386",
+        "t": 1752002931494,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923157"
+      },
+      {
+        "d": "1752002923831479129",
+        "t": 1752002923831,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923156"
+      },
+      {
+        "d": "1752002908323881595",
+        "t": 1752002908323,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923155"
+      },
+      {
+        "d": "1752002900505423087",
+        "t": 1752002900505,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923154"
+      },
+      {
+        "d": "1752002892668876623",
+        "t": 1752002892668,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923153"
+      },
+      {
+        "d": "1752002884958767302",
+        "t": 1752002884958,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923152"
+      },
+      {
+        "d": "1752002869535231428",
+        "t": 1752002869535,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923151"
+      },
+      {
+        "d": "1752002861883933558",
+        "t": 1752002861883,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923150"
+      },
+      {
+        "d": "1752002854104266693",
+        "t": 1752002854104,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923149"
+      },
+      {
+        "d": "1752002846284577983",
+        "t": 1752002846284,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "SELL",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923148"
+      },
+      {
+        "d": "1752002830883846016",
+        "t": 1752002830883,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923147"
+      },
+      {
+        "d": "1752002822423016650",
+        "t": 1752002822423,
+        "p": "92693.8",
+        "q": "0.0001",
+        "s": "BUY",
+        "i": "BTCUSD-PERP",
+        "m": "4611686018467923146"
+      }
+    ]
+  }
+}
+2025-07-09 13:44:13,831 - builtins - DEBUG - Executing step: the response should contain subscription confirmation
+2025-07-09 13:44:13,831 - utils.assertions - DEBUG - Assertion passed: 0 == 0
+2025-07-09 13:44:13,831 - utils.assertions - DEBUG - Assertion passed: subscribe == subscribe
+2025-07-09 13:44:13,831 - builtins - DEBUG - Subscription confirmation verified
+2025-07-09 13:44:13,831 - builtins - DEBUG - Executing step: the book data should contain required fields with simple parameters
+2025-07-09 13:44:13,831 - builtins - DEBUG - All required book data fields present: ['instrument_name', 'subscription', 'channel', 'data']
+2025-07-09 13:44:13,832 - builtins - DEBUG - Executing step: the trade data should contain required fields
+2025-07-09 13:44:13,832 - builtins - DEBUG - All required trade data fields present: ['instrument_name', 'subscription', 'channel', 'data']
+2025-07-09 13:44:13,832 - builtins - DEBUG - Executing step: each trade entry should have required fields
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 0: {
+  "d": "1752003478112698932",
+  "t": 1752003478112,
+  "p": "92693.3",
+  "q": "0.0002",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923195"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 1: {
+  "d": "1752003473985753457",
+  "t": 1752003473985,
+  "p": "92693.3",
+  "q": "0.0006",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923194"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 2: {
+  "d": "1752003469879894676",
+  "t": 1752003469879,
+  "p": "92693.3",
+  "q": "0.0005",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923193"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 3: {
+  "d": "1752003465751143401",
+  "t": 1752003465751,
+  "p": "92694.3",
+  "q": "0.0006",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923192"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 4: {
+  "d": "1752003461130106376",
+  "t": 1752003461130,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923191"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 5: {
+  "d": "1752003428097302616",
+  "t": 1752003428097,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923190"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 6: {
+  "d": "1752003420260078260",
+  "t": 1752003420260,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923189"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 7: {
+  "d": "1752003412168271067",
+  "t": 1752003412168,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923188"
+}
+2025-07-09 13:44:13,832 - builtins - DEBUG - Checking trade entry 8: {
+  "d": "1752003404086183707",
+  "t": 1752003404086,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923187"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 9: {
+  "d": "1752003396491474387",
+  "t": 1752003396491,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923186"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 10: {
+  "d": "1752003388765709596",
+  "t": 1752003388765,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923185"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 11: {
+  "d": "1752003273273525063",
+  "t": 1752003273273,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923184"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 12: {
+  "d": "1752003265599095835",
+  "t": 1752003265599,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923183"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 13: {
+  "d": "1752003257949410595",
+  "t": 1752003257949,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923182"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 14: {
+  "d": "1752003242489529143",
+  "t": 1752003242489,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923181"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 15: {
+  "d": "1752003234680586910",
+  "t": 1752003234680,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923180"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 16: {
+  "d": "1752003227046607004",
+  "t": 1752003227046,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923179"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 17: {
+  "d": "1752003219359869581",
+  "t": 1752003219359,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923178"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 18: {
+  "d": "1752003188357845579",
+  "t": 1752003188357,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923177"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 19: {
+  "d": "1752003180580636862",
+  "t": 1752003180580,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923176"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 20: {
+  "d": "1752003172845255994",
+  "t": 1752003172845,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923175"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 21: {
+  "d": "1752003149705069264",
+  "t": 1752003149705,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923174"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 22: {
+  "d": "1752003134087424489",
+  "t": 1752003134087,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923173"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 23: {
+  "d": "1752003110724745496",
+  "t": 1752003110724,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923172"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 24: {
+  "d": "1752003103057447221",
+  "t": 1752003103057,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923171"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 25: {
+  "d": "1752003095229907388",
+  "t": 1752003095229,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923170"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 26: {
+  "d": "1752003087498947118",
+  "t": 1752003087498,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923169"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 27: {
+  "d": "1752003079831462430",
+  "t": 1752003079831,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923168"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 28: {
+  "d": "1752003072041960194",
+  "t": 1752003072041,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923167"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 29: {
+  "d": "1752003048132677464",
+  "t": 1752003048132,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923166"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 30: {
+  "d": "1752003040317624192",
+  "t": 1752003040317,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923165"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 31: {
+  "d": "1752003008978840265",
+  "t": 1752003008978,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923164"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 32: {
+  "d": "1752003001201159104",
+  "t": 1752003001201,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923163"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 33: {
+  "d": "1752002985939270864",
+  "t": 1752002985939,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923162"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 34: {
+  "d": "1752002978101606525",
+  "t": 1752002978101,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923161"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 35: {
+  "d": "1752002962532686103",
+  "t": 1752002962532,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923160"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 36: {
+  "d": "1752002954687411145",
+  "t": 1752002954687,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923159"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 37: {
+  "d": "1752002939222181142",
+  "t": 1752002939222,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923158"
+}
+2025-07-09 13:44:13,833 - builtins - DEBUG - Checking trade entry 38: {
+  "d": "1752002931494483386",
+  "t": 1752002931494,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923157"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 39: {
+  "d": "1752002923831479129",
+  "t": 1752002923831,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923156"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 40: {
+  "d": "1752002908323881595",
+  "t": 1752002908323,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923155"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 41: {
+  "d": "1752002900505423087",
+  "t": 1752002900505,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923154"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 42: {
+  "d": "1752002892668876623",
+  "t": 1752002892668,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923153"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 43: {
+  "d": "1752002884958767302",
+  "t": 1752002884958,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923152"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 44: {
+  "d": "1752002869535231428",
+  "t": 1752002869535,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923151"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 45: {
+  "d": "1752002861883933558",
+  "t": 1752002861883,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923150"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 46: {
+  "d": "1752002854104266693",
+  "t": 1752002854104,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923149"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 47: {
+  "d": "1752002846284577983",
+  "t": 1752002846284,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "SELL",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923148"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 48: {
+  "d": "1752002830883846016",
+  "t": 1752002830883,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923147"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - Checking trade entry 49: {
+  "d": "1752002822423016650",
+  "t": 1752002822423,
+  "p": "92693.8",
+  "q": "0.0001",
+  "s": "BUY",
+  "i": "BTCUSD-PERP",
+  "m": "4611686018467923146"
+}
+2025-07-09 13:44:13,834 - builtins - DEBUG - All 50 trade entries have required fields
+2025-07-09 13:44:13,834 - builtins - INFO - Completed scenario: Subscribe to order book with simple parameters - Status: Status.passed
+2025-07-09 13:44:13,834 - builtins - INFO - Starting scenario: Subscribe to order book with full parameters
+2025-07-09 13:44:13,835 - builtins - DEBUG - Executing step: I have the WebSocket URL configured
+2025-07-09 13:44:14,835 - builtins - INFO - Using WebSocket URL: wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:14,836 - builtins - DEBUG - Executing step: I set the WebSocket timeout
+2025-07-09 13:44:14,836 - builtins - DEBUG - WebSocket timeout set to 30s
+2025-07-09 13:44:14,836 - builtins - DEBUG - Executing step: I have a WebSocket connection to the book endpoint
+2025-07-09 13:44:15,722 - builtins - INFO - WebSocket connected to wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:15,722 - builtins - DEBUG - Executing step: I prepare a full book subscription message
+2025-07-09 13:44:15,722 - builtins - DEBUG - Prepared full book subscription: {'id': 1, 'method': 'subscribe', 'params': {'channels': ['book.BTCUSD-PERP.10'], 'book_subscription_type': 'SNAPSHOT_AND_UPDATE', 'book_update_frequency': 10}}
+2025-07-09 13:44:15,722 - builtins - DEBUG - Executing step: I send the subscription message
+2025-07-09 13:44:15,723 - builtins - DEBUG - Sending WebSocket message: {"id": 1, "method": "subscribe", "params": {"channels": ["book.BTCUSD-PERP.10"], "book_subscription_type": "SNAPSHOT_AND_UPDATE", "book_update_frequency": 10}}
+2025-07-09 13:44:15,723 - builtins - INFO - Subscription message sent
+2025-07-09 13:44:15,723 - builtins - DEBUG - Executing step: I should receive a successful subscription response
+2025-07-09 13:44:15,926 - builtins - DEBUG - Received WebSocket message: {"id":1,"method":"subscribe","code":0,"channel":"book.BTCUSD-PERP.10"}
+2025-07-09 13:44:16,944 - builtins - DEBUG - Received WebSocket message: {"id":-1,"method":"subscribe","code":0,"result":{"instrument_name":"BTCUSD-PERP","subscription":"book.BTCUSD-PERP.10","channel":"book","depth":10,"data":[{"asks":[],"bids":[],"t":1752068656844,"tt":1752042115577,"u":138584354336,"cs":35}]}}
+2025-07-09 13:44:16,944 - builtins - INFO - Received WebSocket response
+2025-07-09 13:44:16,944 - builtins - DEBUG - WebSocket response: {
+  "id": -1,
+  "method": "subscribe",
+  "code": 0,
+  "result": {
+    "instrument_name": "BTCUSD-PERP",
+    "subscription": "book.BTCUSD-PERP.10",
+    "channel": "book",
+    "depth": 10,
+    "data": [
+      {
+        "asks": [],
+        "bids": [],
+        "t": 1752068656844,
+        "tt": 1752042115577,
+        "u": 138584354336,
+        "cs": 35
+      }
+    ]
+  }
+}
+2025-07-09 13:44:16,944 - builtins - DEBUG - Executing step: the response should contain subscription confirmation
+2025-07-09 13:44:16,944 - utils.assertions - DEBUG - Assertion passed: 0 == 0
+2025-07-09 13:44:16,944 - utils.assertions - DEBUG - Assertion passed: subscribe == subscribe
+2025-07-09 13:44:16,944 - builtins - DEBUG - Subscription confirmation verified
+2025-07-09 13:44:16,944 - builtins - DEBUG - Executing step: the book data should contain required fields
+2025-07-09 13:44:16,945 - builtins - DEBUG - All required book data fields present: ['instrument_name', 'subscription', 'channel', 'depth', 'data']
+2025-07-09 13:44:16,945 - builtins - DEBUG - Executing step: the book should have asks and bids arrays
+2025-07-09 13:44:16,945 - builtins - DEBUG - Received data for channel: book
+2025-07-09 13:44:16,945 - builtins - DEBUG - Data array length: 1
+2025-07-09 13:44:16,945 - utils.assertions - DEBUG - List not empty assertion passed: 1 items
+2025-07-09 13:44:16,945 - builtins - DEBUG - First data entry keys: ['asks', 'bids', 't', 'tt', 'u', 'cs']
+2025-07-09 13:44:16,945 - builtins - DEBUG - First data entry: {
+  "asks": [],
+  "bids": [],
+  "t": 1752068656844,
+  "tt": 1752042115577,
+  "u": 138584354336,
+  "cs": 35
+}
+2025-07-09 13:44:16,945 - builtins - DEBUG - Book has 0 asks and 0 bids
+2025-07-09 13:44:16,945 - builtins - DEBUG - Executing step: each order entry should have price, size, and count
+2025-07-09 13:44:16,945 - builtins - DEBUG - All order entries have required fields
+2025-07-09 13:44:16,945 - builtins - INFO - Completed scenario: Subscribe to order book with full parameters - Status: Status.passed
+2025-07-09 13:44:16,945 - builtins - INFO - Starting scenario: Subscribe with invalid channel
+2025-07-09 13:44:16,946 - builtins - DEBUG - Executing step: I have the WebSocket URL configured
+2025-07-09 13:44:17,946 - builtins - INFO - Using WebSocket URL: wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:17,947 - builtins - DEBUG - Executing step: I set the WebSocket timeout
+2025-07-09 13:44:17,947 - builtins - DEBUG - WebSocket timeout set to 30s
+2025-07-09 13:44:17,947 - builtins - DEBUG - Executing step: I have a WebSocket connection to the book endpoint
+2025-07-09 13:44:18,827 - builtins - INFO - WebSocket connected to wss://uat-stream.3ona.co/exchange/v1/market
+2025-07-09 13:44:18,827 - builtins - DEBUG - Executing step: I prepare an invalid subscription message
+2025-07-09 13:44:18,828 - builtins - DEBUG - Prepared invalid subscription: {'id': 999, 'method': 'subscribe', 'params': {'channels': ['invalid.channel.10']}}
+2025-07-09 13:44:18,828 - builtins - DEBUG - Executing step: I send the subscription message
+2025-07-09 13:44:18,828 - builtins - DEBUG - Sending WebSocket message: {"id": 999, "method": "subscribe", "params": {"channels": ["invalid.channel.10"]}}
+2025-07-09 13:44:18,828 - builtins - INFO - Subscription message sent
+2025-07-09 13:44:18,828 - builtins - DEBUG - Executing step: I should receive an error response
+2025-07-09 13:44:19,034 - builtins - DEBUG - Received WebSocket message: {"id":999,"method":"subscribe","code":40003,"channel":"invalid.channel.10","message":"Unrecognized channel"}
+2025-07-09 13:44:19,034 - builtins - INFO - Received WebSocket error response
+2025-07-09 13:44:19,034 - builtins - DEBUG - Executing step: the error should indicate invalid channel
+2025-07-09 13:44:19,034 - utils.assertions - DEBUG - Assertion passed: 40003 != 0
+2025-07-09 13:44:19,035 - builtins - DEBUG - Error response indicates invalid channel
+2025-07-09 13:44:19,035 - builtins - INFO - Completed scenario: Subscribe with invalid channel - Status: Status.passed
+2025-07-09 13:44:19,035 - builtins - INFO - Completed feature: WebSocket Book Subscription Testing
+2025-07-09 13:44:19,035 - builtins - INFO - Test execution completed
