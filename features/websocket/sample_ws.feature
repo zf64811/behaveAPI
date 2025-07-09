@@ -1,4 +1,4 @@
-@websocket @book
+@book
 Feature: WebSocket Book Subscription Testing
     As an API user
     I want to subscribe to order book data via WebSocket

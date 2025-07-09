@@ -1,4 +1,4 @@
-@rest @candlestick
+@candlestick
 Feature: Candlestick API Testing
 	As an API user
 	I want to retrieve candlestick data
