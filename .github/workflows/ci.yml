@@ -26,3 +26,12 @@ jobs:
 
       - name: Run Behave Tests
         run: behave
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.Public_Token }}
+          external_repository: zf64811/Kong-cypress
+          publish_branch: gh-pages
+          publish_dir: ${{ github.workspace }}/reports
+          keep_files: false
