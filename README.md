@@ -196,3 +196,14 @@ A: Add them in the `headers` section of `config/config.yml`, or set them dynamic
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Reprots
+
+"""
+On each push to the main branch, GitHub Actions will:
+Install dependencies
+Run behave
+Generate HTML report
+Publish the report to GitHub Pages at:
+👉 https://zf64811.github.io/behaveAPI/
+"""
