@@ -30,7 +30,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.Public_Token }}
+          personal_token: ${{ secrets.PU_TOKEN }}
           external_repository: zf64811/behaveAPI
           publish_branch: gh-pages
           publish_dir: ${{ github.workspace }}/reports
