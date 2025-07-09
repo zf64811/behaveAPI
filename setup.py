@@ -1,6 +1,5 @@
 """Setup script for BehaveAPI project."""
 
-import os
 import shutil
 from pathlib import Path
 
@@ -9,15 +8,7 @@ def setup_project():
     """Setup the BehaveAPI project."""
     print("Setting up BehaveAPI project...")
 
-    # Create .env file from example if it doesn't exist
-    env_example = Path("env_example.txt")
     env_file = Path(".env")
-
-    if env_example.exists() and not env_file.exists():
-        shutil.copy(env_example, env_file)
-        print("✓ Created .env file from env_example.txt")
-    else:
-        print("✓ .env file already exists or env_example.txt not found")
 
     # Create directories if they don't exist
     directories = [

@@ -71,13 +71,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. Configure environment variables
-
-```bash
-cp config/.env.example .env
-# Edit the .env file and set necessary environment variables
-```
-
 ## Configuration
 
 ### Environment Variables (.env)
